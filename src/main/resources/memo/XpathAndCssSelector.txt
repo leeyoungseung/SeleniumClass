@@ -1,0 +1,58 @@
+﻿Xpath, CssSelector 메모
+
+Xpath, 
+1. id등 특정할 수 없을 경우
+/html/body/div/form/div[1] -> 여러개의 요소의 경우 이런 식으로 ["번호"]가 붙는다. 위치에 따라 값이 변함
+ /html/body/div/form/div[1]/label -> 요소가 하나일 경우 번호가 붙지 않음
+/html/body/div/form/div[2]
+ /html/body/div/form/div[2]/label[1]
+ /html/body/div/form/div[2]/label[2]
+ //*[@id="pwd"]
+/html/body/div/form/div[3]
+/html/body/div/form/div[3]/label[2]/a
+
+2. id로 특정 할 수 있는 경우
+//*[@id="loginForm"]/div[1]
+ //*[@id="loginForm"]/div[1]/label
+//*[@id="loginForm"]/div[2]
+ //*[@id="loginForm"]/div[2]/label[1]
+ //*[@id="loginForm"]/div[2]/label[2]
+ //*[@id="pwd"]
+//*[@id="loginForm"]/div[3]
+//*[@id="loginForm"]/div[3]/label[2]/a
+
+3. class는??
+/html/body/div/form/div[1]
+/html/body/div/form/div[2]
+/html/body/div/form/div[3]
+/html/body/div/form/div[3]/label[2]/a
+
+
+CssSelector 
+1. id등 특정할 수 없을 경우
+body > div > form > div:nth-child(1)
+ body > div > form > div:nth-child(1) > label
+body > div > form > div:nth-child(2)
+ body > div > form > div:nth-child(2) > label:nth-child(1)
+ body > div > form > div:nth-child(2) > label:nth-child(2)
+body > div > form > div.form-group.form-check
+ body > div > form > div.form-group.form-check > label:nth-child(1)
+ body > div > form > div.form-group.form-check > label:nth-child(2) > a
+
+2. id로 특정 할 수 있는 경우
+#loginForm > div:nth-child(1)
+ #loginForm > div:nth-child(1) > label
+#loginForm > div:nth-child(2)
+ #loginForm > div:nth-child(2) > label:nth-child(1)
+ #loginForm > div:nth-child(2) > label:nth-child(2)
+ #pwd
+#loginForm > div.form-group.form-check
+ #loginForm > div.form-group.form-check > label:nth-child(2) > a
+
+3. class는?
+body > div > form > div:nth-child(1)
+body > div > form > div:nth-child(2)
+body > div > form > div.form-group.form-check
+body > div > form > div.form-group.form-check > label:nth-child(2) > a
+
+
