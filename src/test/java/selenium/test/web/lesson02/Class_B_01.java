@@ -1,5 +1,5 @@
 /**
- * WebDriver의 사용법
+ * 조작 1 : 기본 조작 + 정보 가져오기
  */
 package selenium.test.web.lesson02;
 
@@ -34,6 +34,7 @@ public class Class_B_01 {
 	// 슬립 함수
 	private void sleep(int sec) {
 		try {
+			System.out.println("[ " + sec + " ] 초간 기다립니다.");
 			Thread.sleep(sec * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -103,15 +104,49 @@ public class Class_B_01 {
 		System.out.println(wel.isDisplayed());
 		System.out.println(wel.isEnabled());
 		System.out.println(wel.isSelected());
+		
+		//현재 페이지의 URL
+		String currentUrl = driver.getCurrentUrl();
+		//현재 페이지의 Title
+		String title = driver.getTitle();
+		//현재 페이지의 HTML 소스 코드
+		String pageSource = driver.getPageSource();
+			
+		System.out.println("currentUrl : "+currentUrl);
+		System.out.println("title : "+title);
+		System.out.println("pageSource : "+pageSource);
 	}
 	
 	/**
-	 * driver의 기본기능
+	 * 연습 문제 : 왜 우리는 다양한 요소 지정하는 법과, 조작하는 법을 익혀야 하는지???
 	 * @throws IOException
 	 * @throws WebDriverException
 	 */
 	@Test
-	public void test002() throws IOException, WebDriverException{
+	public void Test003() throws IOException, WebDriverException{
+		// 드라이버 시작
+		if (driver == null) {
+			startDriver();
+		}
+		// 네이버로 이동
+		driver.get("https://www.naver.com/");
+		sleep(3);
+		
+		//a태그를 선택하기
+		System.out.println("a 태그를 선택합니다");
+		WebElement wel = driver.findElement(By.xpath("//*[@id=\"PM_ID_ct\"]/div[1]/div[2]/div[1]/ul[1]/li[3]/a"));
+		wel.click();
+		
+		// 네이버로 이동
+		driver.get("https://www.naver.com/");
+		sleep(3);
+		
+		//span 태그선택하기
+		System.out.println("span 태그를 선택합니다");
+		wel = driver.findElement(By.xpath("//*[@id=\"PM_ID_ct\"]/div[1]/div[2]/div[1]/ul[1]/li[3]/a/span[2]"));
+		wel.click();
+//		System.out.println(wel.isEnabled());
+//		System.out.println(wel.isSelected());
 		
 	}
 

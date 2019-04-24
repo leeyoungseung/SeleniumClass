@@ -36,6 +36,7 @@ public class Class_A_01 {
 	//슬립 함수
 	private void sleep(int sec) {
 		try {
+			System.out.println("[ " + sec + " ] 초간 기다립니다.");
 			Thread.sleep(sec * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -43,7 +44,7 @@ public class Class_A_01 {
 	}
 	
 	/**
-	 * WebElemet요소 지정하기 1
+	 * WebElemet요소 지정하기 1 : 기본중의 기본 findElement
 	 * @throws IOException
 	 * @throws WebDriverException
 	 */
@@ -79,6 +80,11 @@ public class Class_A_01 {
 		}
 	}
 	
+	/**
+	 * WebElemet요소 지정하기 2 : Xpath, CssSelector
+	 * @throws IOException
+	 * @throws WebDriverException
+	 */
 	@Test
 	public void Test002() throws IOException, WebDriverException{
 		//드라이버 시작

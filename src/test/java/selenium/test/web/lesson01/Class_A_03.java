@@ -34,12 +34,18 @@ public class Class_A_03 {
 	// 슬립 함수
 	private void sleep(int sec) {
 		try {
+			System.out.println("[ " + sec + " ] 초간 기다립니다.");
 			Thread.sleep(sec * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * findElements로 WebElement의 List활용 + 자식 요소를 지정하기
+	 * @throws IOException
+	 * @throws WebDriverException
+	 */
 	@Test
 	public void Test001() throws IOException, WebDriverException {
 		// 드라이버 시작
@@ -81,6 +87,11 @@ public class Class_A_03 {
 		}
 	}
 
+	/**
+	 * 부모 요소를 지정하기
+	 * @throws IOException
+	 * @throws WebDriverException
+	 */
 	@Test
 	public void Test002() throws IOException, WebDriverException {
 		// 드라이버 시작
@@ -90,10 +101,10 @@ public class Class_A_03 {
 		// 이동
 		driver.get("http://127.0.0.1/seleniumTest/Class_A_03.html");
 
-		// findElements메소드는 지정한 값에 해당하는 WebElement의 List를 반환한다.
+		
 		WebElement wel = driver.findElement(By.tagName("table"));
 		// WebElement wel2 = driver.findElement(By.className("table table-bordered"));
-		// -> 중간에 뛰어쓰기가 있는 것은 인식을 못함ㄷㄷ
+		// -> 중간에 띄어쓰기가 있는 것은 인식을 못함ㄷㄷ
 		System.out.println(wel.getAttribute("class"));
 
 		// 선택한 WebElement의 부모 요소를 지정하기

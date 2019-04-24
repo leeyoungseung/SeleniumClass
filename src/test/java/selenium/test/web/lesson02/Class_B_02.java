@@ -1,5 +1,5 @@
 /**
- * JavascriptExecutor의 사용법
+ * 조작 2 : JavascriptExecutor의 사용법
  */
 package selenium.test.web.lesson02;
 
@@ -36,6 +36,7 @@ public class Class_B_02 {
 	// 슬립 함수
 	private void sleep(int sec) {
 		try {
+			System.out.println("[ " + sec + " ] 초간 기다립니다.");
 			Thread.sleep(sec * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -43,8 +44,8 @@ public class Class_B_02 {
 	}
 	
 	/**
-	 * @reference :
-	 *            https://www.guru99.com/execute-javascript-selenium-webdriver.html
+	 * JavascriptExecutor 사용법 1
+	 * @참조 https://www.guru99.com/execute-javascript-selenium-webdriver.html
 	 * @throws IOException
 	 * @throws WebDriverException
 	 */
@@ -85,6 +86,12 @@ public class Class_B_02 {
 
 	}
 	
+	/**
+	 * JavascriptExecutor 사용법 2
+	 * @참조 https://www.guru99.com/execute-javascript-selenium-webdriver.html
+	 * @throws IOException
+	 * @throws WebDriverException
+	 */
 	@Test
 	public void Test002() throws IOException, WebDriverException{
 		// 드라이버 시작
@@ -128,6 +135,26 @@ public class Class_B_02 {
 		jse.executeScript("arguments[0].scrollIntoView(true);",wel);
 		sleep(3);
 		wel.click();
+	}
+	
+	/**
+	 * 연습문제 : JavascriptExecutor로 naver로그인 해보기 
+	 * @참조 https://www.guru99.com/execute-javascript-selenium-webdriver.html
+	 * @throws IOException
+	 * @throws WebDriverException
+	 */
+	@Test
+	public void Test003() throws IOException, WebDriverException{
+		// 드라이버 시작
+		if (driver == null) {
+			startDriver();
+		}
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		
+		// 이동
+		driver.get("https://www.naver.com/");
+		
+		sleep(3);
 	}
 
 }
